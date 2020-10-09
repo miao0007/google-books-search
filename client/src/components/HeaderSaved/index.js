@@ -11,3 +11,5 @@ class HeaderSaved extends React.Component {
         )
     }
 }
+
+export default HeaderSaved;

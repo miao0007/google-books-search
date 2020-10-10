@@ -6,29 +6,31 @@ import API from "../utils/API";
 class Saved extends React.Component {
     state = {
         saved: [],
-        btnColor: {background: 'red'}
+        btnColor: {background: 'red'} 
     }
-
     componentDidMount() {
-        this.getSaved()
+       this.getSaved()
     }
     getSaved = () => {
-        API.getAllBooks().then(res => {
-            this.setState({saved: res.data})
-        })
+        API.getAllBooks()
+           .then(res => {
+               this.setState({saved: res.data})
+           })
     }
-    render () {
+    render() {
         return (
             <div>
-                <HeaderSaved />
-                <Results books = {this.state.saved}
-                status = "Saved Books: "
-                buttonText = "Delete"
-                buttonColor = {this.state.btnColor}
-                getSaved = {this.getSaved}
+                <SavedHeader />
+                <Results 
+                    books = {this.state.saved}
+                    status = "Saved Books:"
+                    buttonText = "Delete"
+                    buttonColor = {this.state.btnColor}
+                    getSaved = {this.getSaved}
                 />
             </div>
         )
     }
 }
+
 export default Saved

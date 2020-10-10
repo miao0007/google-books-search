@@ -8,7 +8,8 @@ class Header extends React.Component {
     }
 
     render() {
-        <div className = "header">
+        return (
+<div className = "header">
             <h1>Google Books Search</h1>
             <h2>Create Your Own Reading List</h2>
             <form>
@@ -18,6 +19,8 @@ class Header extends React.Component {
                 </div>
             </form>
         </div>
+        )
+        
     }
 }
 

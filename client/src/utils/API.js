@@ -10,7 +10,7 @@ export default {
         return axios.post(`/api/books/${id}`);
     },
     // search books
-    searchBooks: function() {
+    searchBooks: function(search) {
         return axios.get(`/search/${search}`);
     },
     // delete unsaved books

@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 const axios = require("axios");
 
 // require models
-const db = require(./models);
+const db = require("./models");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));

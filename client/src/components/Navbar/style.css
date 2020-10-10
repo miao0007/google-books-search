@@ -1,8 +1,19 @@
 .navbar {
-    background: rgb(94, 9, 9);
+    background: #f40;
     color: white;
+    height: 80px;
 }
 .navbar a {
     color: white;
     margin-left: 15px;
+}
+.title {
+    font-size: 3em;
+}
+.search 
+ {
+    font-size: 24px;
+}
+.saved {
+    font-size: 24px;;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 import API from "../../utils/API";
-import Search from "../../pages/Search";
+
 
 class Results extends React.Component {
     handleSave = (id) => {
@@ -54,4 +54,4 @@ class Results extends React.Component {
     }
 }
 
-export default Search
+export default Results

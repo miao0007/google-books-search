@@ -1,6 +1,6 @@
 import React from "react";
 import HeaderSaved from "../components/HeaderSaved";
-import Results from "../components/Result";
+import Results from "../components/Results";
 import API from "../utils/API";
 
 class Saved extends React.Component {

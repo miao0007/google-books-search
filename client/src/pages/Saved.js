@@ -20,7 +20,7 @@ class Saved extends React.Component {
     render() {
         return (
             <div>
-                <SavedHeader />
+                <HeaderSaved />
                 <Results 
                     books = {this.state.saved}
                     status = "Saved Books:"

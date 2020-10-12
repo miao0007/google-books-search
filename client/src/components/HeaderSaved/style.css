@@ -6,15 +6,16 @@
       background-size: cover;
       background-position: right;
     height: 100vh;
-    color: rgb(94, 9, 9);
-    text-shadow: 1px 1px black;
+    color: rgb(92, 42, 230);
+    text-shadow: 1px 1px rgb(42, 22, 80);
     padding-top: 25vh;
 }
 .saved-header h1{
-    font-size: 64px;
+    font-size: 74px;
     font-family: 'Oleo Script', cursive;
 }
 .saved-header h2 {
-    font-size: 30px;
+    font-size: 36px;
+    color:rgb(114, 93, 233);
     font-family: 'Oleo Script', cursive;
 }

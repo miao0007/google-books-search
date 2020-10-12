@@ -1,11 +1,18 @@
 .navbar {
     background: #f40;
-    color: white;
+    color: rgb(255, 255, 255);
     height: 80px;
 }
 .navbar a {
-    color: white;
+    color: rgb(236, 245, 208);
+    font-size: 20px;
     margin-left: 15px;
+}
+.brand {
+    font-size: 36px;
+    color:rgb(230, 238, 209);
+
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 .title {
     font-size: 3em;
@@ -13,7 +20,9 @@
 .search 
  {
     font-size: 24px;
+    font-weight: bold;
 }
 .saved {
     font-size: 24px;;
+    font-weight: bold;
 }

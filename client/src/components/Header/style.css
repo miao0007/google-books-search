@@ -19,15 +19,16 @@
     font-family: 'Oleo Script', cursive;
 }
 .btn {
-    background:rgb(1, 11, 68);
-    height: 40px;
+    background:rgb(35, 145, 8);
+    height: 45px;
     color: aliceblue;
     font-size: 20px;
     text-align: center;
     
 }
-input {
-    height: 35px;
+.form-control {
+    height: 45px;
+    font-size: 20px;
 }
 form {
     width: 35vw;

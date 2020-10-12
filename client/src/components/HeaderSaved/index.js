@@ -7,7 +7,7 @@ class HeaderSaved extends React.Component {
         return (
             <div className="saved-header">
             <h1>Saved Books</h1>
-            <h2>View your Saved Books Below</h2>
+            <h2>Scroll Down To View your Saved Books</h2>
         </div>
         )
     }

@@ -8,7 +8,7 @@ class Navbar extends React.Component {
         return (
 
             <nav className="navbar fixed-top">
-                <span className="navbar-brand mb-0 h1">Google Books Search</span>
+                <span className="brand">Google Books Search</span>
                 <div className = "link-text">
                     <Link to="/"><span className="search">Search</span></Link>
                     <Link to="/saved"><span className="saved">Saved</span></Link>

@@ -14,7 +14,7 @@ class Header extends React.Component {
               <h2>Search for and Save Books of Interest</h2>
               <form>
                   <div className="input-group">
-                      <input className="form-control" type="text" placeholder="Find a Book" value={this.props.search} onChange={this.props.updateInput}></input>
+                      <input className="form-control" type="text" placeholder="Search a Book Here" value={this.props.search} onChange={this.props.updateInput}></input>
                       <button className="btn input-group-append" onClick={this.handleSubmit}>Search</button>
                   </div>
               </form>          

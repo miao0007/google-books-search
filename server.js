@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 const axios = require("axios");
 //require models
 const db = require("./models");
-// Define middleware here
+// middleware 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
@@ -16,7 +16,15 @@ if (process.env.NODE_ENV === "production") {
 }
 //Connect to MongoDB
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/book");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/book",
+{
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false
+}
+
+);
 // Define API routes here
 //search route
 app.get("/search/:search", (req, res) => {
@@ -25,7 +33,7 @@ app.get("/search/:search", (req, res) => {
     .get("https://www.googleapis.com/books/v1/volumes?q=" + search)
     .then(function (response) {
       let books = response.data.items;
-      // console.log(books)
+      
       let array = [];
       for (let i = 0; i < books.length; i++) {
         if (
@@ -47,13 +55,13 @@ app.get("/search/:search", (req, res) => {
         .catch((err) => res.json(err));
     });
 });
-//get all saved books from db
+//get saved books 
 app.get("/api/books", (req, res) => {
   db.Book.find({ saved: true })
     .then((dbBook) => res.json(dbBook))
     .catch((err) => res.json(err));
 });
-//save a book to db
+//save a book 
 app.post("/api/books/:id", (req, res) => {
   db.Book.findOneAndUpdate(
     { _id: req.params.id },
@@ -63,11 +71,11 @@ app.post("/api/books/:id", (req, res) => {
     res.json(dbBook);
   });
 });
-//delete all unsaved books from db
+//delete all unsaved books
 app.delete("/api/books", (req, res) => {
   db.Book.deleteMany({ saved: false }).then((dbBooks) => res.json(dbBooks));
 });
-//delete a book from db /api/books/:id
+//delete a book 
 app.delete("/api/books/:id", (req, res) => {
   db.Book.deleteOne({ _id: req.params.id }).then((dbBook) => res.json(dbBook));
 });

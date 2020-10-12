@@ -4,11 +4,11 @@ body {
     }
     .results {
         padding-top: 20px;
-        background: rgb(94, 9, 9);
+        background: #ff4400;
         height: 100%;
     }
     .result-box{
-        background: #f9f5da
+        background: #f7f2d2
     }
     p {
         float: left;
@@ -16,6 +16,11 @@ body {
     }
     .title, .authors {
         margin-left: 10px;
+    }
+    .authors {
+        font-size: 20px;
+        font-weight: bold;
+        color: indigo;
     }
     .buttonDiv {
         margin-right: 20px;
@@ -29,7 +34,7 @@ body {
         color: white;
     }
     .view {
-        background: navy;
+        background:rgb(5, 163, 89);
         color: white;
         margin-right: 10px;
     }
@@ -37,5 +42,6 @@ body {
         color: white;
     }
     .description{
-        margin-right: 20px
+        margin-right: 20px;
+        font-size: 18px;
     }

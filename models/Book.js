@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const BookSchema = new Schema ({
     title: {
         type: String,
-        required: TextTrackCue
+        required: true
     },
     authors: {
         type: Array,
@@ -18,7 +18,6 @@ const BookSchema = new Schema ({
         type: String,
         required: true
     },
-
     saved: {
         type: Boolean,
         default: false

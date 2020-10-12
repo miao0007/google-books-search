@@ -1,13 +1,11 @@
 const express = require("express");
 const path = require("path");
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
 const axios = require("axios");
-
-// require models
+//require models
 const db = require("./models");
-
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -16,25 +14,19 @@ app.use(express.static("public"));
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+//Connect to MongoDB
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/book";
-mongoose
-  .connect(MONGODB_URI, { useNewUrlParser: true }, (err) => {
-    if (err) throw err;
-    console.log("database connected");
-  })
-  .then(() => console.log("Database Connected!"))
-  .catch((err) => console.log(err));
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/book");
 // Define API routes here
-// search route
+//search route
 app.get("/search/:search", (req, res) => {
   let search = req.params.search;
   axios
     .get("https://www.googleapis.com/books/v1/volumes?q=" + search)
     .then(function (response) {
       let books = response.data.items;
-      console.log(books);
-      let bookList = [];
+      // console.log(books)
+      let array = [];
       for (let i = 0; i < books.length; i++) {
         if (
           books[i].volumeInfo.imageLinks !== undefined &&
@@ -47,23 +39,21 @@ app.get("/search/:search", (req, res) => {
             image: books[i].volumeInfo.imageLinks.smallThumbnail,
             link: books[i].volumeInfo.infoLink,
           };
-          bookList.push(bookInfo);
+          array.push(bookInfo);
         }
       }
-      db.Book.create(bookList)
+      db.Book.create(array)
         .then((dbBook) => res.json(dbBook))
         .catch((err) => res.json(err));
     });
 });
-
-// get all saved books
+//get all saved books from db
 app.get("/api/books", (req, res) => {
   db.Book.find({ saved: true })
     .then((dbBook) => res.json(dbBook))
     .catch((err) => res.json(err));
 });
-
-// save a book
+//save a book to db
 app.post("/api/books/:id", (req, res) => {
   db.Book.findOneAndUpdate(
     { _id: req.params.id },
@@ -73,14 +63,11 @@ app.post("/api/books/:id", (req, res) => {
     res.json(dbBook);
   });
 });
-
-// delete unsaved books from database
+//delete all unsaved books from db
 app.delete("/api/books", (req, res) => {
   db.Book.deleteMany({ saved: false }).then((dbBooks) => res.json(dbBooks));
 });
-
-// delete one book from database
-
+//delete a book from db /api/books/:id
 app.delete("/api/books/:id", (req, res) => {
   db.Book.deleteOne({ _id: req.params.id }).then((dbBook) => res.json(dbBook));
 });
